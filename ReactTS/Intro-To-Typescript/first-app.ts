@@ -33,9 +33,14 @@ arr = ["hello1", "hello2"];
 // * Functions
 
 //  ? return type of function
-// function name(params:type) : return type of function{}
+// function name(params:type) => or : return type of function{}
 
 function add(a: number, b: number): void {
   const result = a + b;
   console.log(result);
 }
+
+//  * type alias
+
+// ? defining type for add function using type keyword
+type addFn = (a: number, b: number) => number;
