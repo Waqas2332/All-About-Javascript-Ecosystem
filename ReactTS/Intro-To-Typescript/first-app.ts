@@ -29,3 +29,13 @@ user = {
 let arr: string[];
 
 arr = ["hello1", "hello2"];
+
+// * Functions
+
+//  ? return type of function
+// function name(params:type) : return type of function{}
+
+function add(a: number, b: number): void {
+  const result = a + b;
+  console.log(result);
+}
