@@ -23,3 +23,9 @@ user = {
   isAdmin: true,
   id: "123",
 };
+
+// * Arrays
+
+let arr: string[];
+
+arr = ["hello1", "hello2"];
