@@ -7,3 +7,19 @@ let num: number; // ? Explicitly assigning types
 // * Basic Types in TS
 
 // ? string, number, boolean
+
+// * Objects in TS
+
+let user: {
+  name: string;
+  age: number;
+  isAdmin: boolean;
+  id: number | string;
+};
+
+user = {
+  name: "Waqas",
+  age: 12,
+  isAdmin: true,
+  id: "123",
+};
