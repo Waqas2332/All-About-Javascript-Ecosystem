@@ -44,3 +44,8 @@ function add(a: number, b: number): void {
 
 // ? defining type for add function using type keyword
 type addFn = (a: number, b: number) => number;
+
+//  * interface keyword
+
+// ? don't use = after interface name. Interface is mainly used to define object types
+interface Credentials {}
