@@ -49,3 +49,5 @@ type addFn = (a: number, b: number) => number;
 
 // ? don't use = after interface name. Interface is mainly used to define object types
 interface Credentials {}
+
+// ** Done With Baiscs of TS ** //
