@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 
 const POSTS = [
   { id: 1, title: "First Post" },
@@ -6,7 +6,7 @@ const POSTS = [
 ];
 
 function App() {
-  console.log(POSTS);
+  const client = useQueryClient();
   // Queries
   const postQuery = useQuery({
     // Unique identifer for your query, always takes an array
@@ -25,6 +25,10 @@ function App() {
           title,
         });
       });
+    },
+    // Invalidation the query to run that again (more info at README.md)
+    onSuccess: () => {
+      client.invalidateQueries(["posts"]);
     },
   });
 
