@@ -6,11 +6,26 @@ const POSTS = [
 ];
 
 function App() {
+  console.log(POSTS);
+  // Queries
   const postQuery = useQuery({
     // Unique identifer for your query, always takes an array
     queryKey: ["posts"],
     // Always Accepts a promise because it is async function
     queryFn: () => wait(1000).then(() => [...POSTS]),
+  });
+
+  // Mutations
+  const newPostMutation = useMutation({
+    // mutationFn takes just only one and one parameter. All the data should be inside of that parameter. In this case, it is just a single value ==> title
+    mutationFn: (title) => {
+      return wait(1000).then(() => {
+        POSTS.push({
+          id: Math.random(),
+          title,
+        });
+      });
+    },
   });
 
   if (postQuery.isLoading) {
@@ -26,6 +41,10 @@ function App() {
       {postQuery.data.map((post) => (
         <div key={post.id}>{post.title}</div>
       ))}
+      {/* Calling that mutation function with desired parameter */}
+      <button onClick={() => newPostMutation.mutate("New Post")}>
+        Add New
+      </button>
     </div>
   );
 }
