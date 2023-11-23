@@ -20,3 +20,4 @@ console.log(__filename);
 console.log(path.dirname(__filename)); // Same as simple __dirname
 console.log(path.basename(__filename)); // Gives name of current file
 console.log(path.extname(__filename)); // Give extension of curr file
+console.log(path.parse(__filename)); // Gives object which contains all of the above information
