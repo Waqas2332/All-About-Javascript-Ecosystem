@@ -7,6 +7,8 @@ async function fileOps() {
       path.join(__dirname, "starter.txt"),
       "utf-8"
     );
+    await fsPromises.unlink(path.join(__dirname, "starter.txt"));
+
     await fsPromises.writeFile(path.join(__dirname, "promiseWrite.txt"), data);
     await fsPromises.appendFile(
       path.join(__dirname, "promiseWrite.txt"),
