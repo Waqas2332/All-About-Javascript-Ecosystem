@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-
+import styles from "./styles.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +11,7 @@ export default function AboutLayout({ children }) {
   return (
     <>
       <nav>About Nav</nav>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </>
   );
 }
