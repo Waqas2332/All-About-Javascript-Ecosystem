@@ -15,3 +15,9 @@ fs.writeFile(path.join(__dirname, "reply.txt"), "Nice to meet you", (err) => {
   // converting buffer in string
   console.log("Write Operation Completed Successfully");
 });
+
+fs.appendFile(path.join(__dirname, "test.txt"), "\nChecking update", (err) => {
+  if (err) throw err;
+  // converting buffer in string
+  console.log("Append Operation Completed Successfully");
+});
