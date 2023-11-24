@@ -8,3 +8,10 @@ fs.readFile(path.join(__dirname, "starter.txt"), (err, data) => {
   // converting buffer in string
   console.log(data.toString());
 });
+
+// writeFile() ==> takes path to the file , content which should be written, and then returns a callback
+fs.writeFile(path.join(__dirname, "reply.txt"), "Nice to meet you", (err) => {
+  if (err) throw err;
+  // converting buffer in string
+  console.log("Write Operation Completed Successfully");
+});
