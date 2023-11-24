@@ -23,6 +23,7 @@ export default function AddPost() {
       title,
       content,
       userId,
+      date: new Date().toISOString(),
     };
     dispatch(postAdded(post));
     setTitle("");
