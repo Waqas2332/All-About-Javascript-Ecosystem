@@ -1,6 +1,7 @@
 import UserPosts from "@/components/UserPosts";
 import getUser from "@/lib/getUser";
 import getUserPosts from "@/lib/getUserPosts";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 type Params = {
@@ -8,6 +9,18 @@ type Params = {
     userId: string;
   };
 };
+
+export async function generateMetaData({
+  params: { userId },
+}: Params): Promise<Metadata> {
+  const userData: Promise<User> = getUser(userId);
+  const user: User = await userData;
+
+  return {
+    title: user.name,
+    description: `This is the page of ${user.name}`,
+  };
+}
 
 export default async function User({ params: { userId } }: Params) {
   //   Fetching Data in Parallel
