@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
   console.log(extensionName);
   let contentType;
 
-  switch (extension) {
+  switch (extensionName) {
     case ".css":
       contentType = "text/css";
       break;
@@ -41,6 +41,15 @@ const server = http.createServer((req, res) => {
     default:
       contentType = "text/html";
   }
+
+  let filePath =
+    contentType === "text/html" && req.url === "/"
+      ? path.join(__dirname, "views", "index.html")
+      : contentType === "text/html" && req.url.slice(-1) === "/"
+      ? path.join(__dirname, "views", req.url, "index.html")
+      : contentType === "text/html"
+      ? path.join(__dirname, "views", req.url)
+      : path.join(__dirname, req.url);
 });
 
 server.listen(PORT, () => {
