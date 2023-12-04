@@ -1,10 +1,14 @@
 import UserItem from "./UserItem";
 import styles from "./UsersList.module.css";
+import Card from "../../shared/components/UI/Card";
+
 function UsersList(props) {
   if (props.items.length === 0) {
     return (
       <div className="center">
-        <h2>No Users Found</h2>
+        <Card>
+          <h2>No Users Found</h2>
+        </Card>
       </div>
     );
   }

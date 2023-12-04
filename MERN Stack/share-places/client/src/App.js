@@ -1,11 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import Users from "./users/pages/Users";
+import MainNavigation from "./shared/components/navigation/MainNavigation";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Users />} />
-    </Routes>
+    <>
+      <MainNavigation />
+      <main>
+        <Routes>
+          <Route path="/" element={<Users />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 
