@@ -1,5 +1,12 @@
+import { Routes, Route } from "react-router-dom";
+import Users from "./users/pages/Users";
+
 function App() {
-  return <h1>Let's start</h1>;
+  return (
+    <Routes>
+      <Route path="/" element={<Users />} />
+    </Routes>
+  );
 }
 
 export default App;
