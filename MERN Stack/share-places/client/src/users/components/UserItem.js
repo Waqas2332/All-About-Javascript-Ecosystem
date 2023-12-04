@@ -1,19 +1,24 @@
-import styles from "./UserItem.module.css";
+import "./UserItem.css";
+import Avatar from "../../shared/components/UI/Avatar";
+import { Link } from "react-router-dom";
+import Card from "../../shared/components/UI/Card";
 
 function UserItem(props) {
   return (
-    <li className={styles["user-item"]}>
-      <div className={styles["user-item__content"]}>
-        <div className={styles["user-item__image"]}>
-          <img src={props.image} alt={props.name} />
-        </div>
-        <div className={styles["user-item__info"]}>
-          <h2>{props.name}</h2>
-          <h3>
-            {props.placeCount} {props.placeCount === 1 ? "place" : "places"}
-          </h3>
-        </div>
-      </div>
+    <li className="user-item">
+      <Card className="user-item__content">
+        <Link to={`/${props.id}/places`}>
+          <div className="user-item__image">
+            <Avatar image={props.image} alt={props.name} />
+          </div>
+          <div className="user-item__info">
+            <h2>{props.name}</h2>
+            <h3>
+              {props.placeCount} {props.placeCount === 1 ? "place" : "places"}
+            </h3>
+          </div>
+        </Link>
+      </Card>
     </li>
   );
 }
