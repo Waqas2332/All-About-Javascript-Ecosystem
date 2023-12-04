@@ -10,10 +10,10 @@ type HeaderProps = {
 
 function Header({ image, children }: HeaderProps) {
   return (
-    <div>
+    <header>
       <img src={image.src} alt={image.alt} />
       {children}
-    </div>
+    </header>
   );
 }
 
