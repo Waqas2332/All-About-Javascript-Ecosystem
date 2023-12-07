@@ -1,14 +1,22 @@
 import { FormEvent, useRef } from "react";
 
-export default function NewGoal() {
+type NewGoalProp = {
+  onAddGoal: (title: string, description: string) => void;
+};
+
+export default function NewGoal({ onAddGoal }: NewGoalProp) {
   const goal = useRef<HTMLInputElement>(null);
   const summary = useRef<HTMLInputElement>(null);
 
-  function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const enterredGoal = goal.current!.value;
     const enterredSummary = summary.current!.value;
+    // * For clearing inputs
+    event.currentTarget.reset();
+
+    onAddGoal(enterredGoal, enterredSummary);
   }
 
   return (
