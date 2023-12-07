@@ -13,13 +13,12 @@ function MainNavigation(props) {
   }
   return (
     <>
-      {isOpen && (
-        <SideDrawer>
-          <nav className="main-navigation__drawer-nav">
-            <NavLinks />
-          </nav>
-        </SideDrawer>
-      )}
+      <SideDrawer show={isOpen} onClick={closeDrawer}>
+        <nav className="main-navigation__drawer-nav">
+          <NavLinks />
+        </nav>
+      </SideDrawer>
+
       {isOpen && <Backdrop onClick={closeDrawer} />}
       <MainHeader>
         <button
