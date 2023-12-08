@@ -1,5 +1,6 @@
 import Card from "../../shared/components/UI/Card";
 import "./PlaceItem.css";
+import Button from "../../shared/components/FormElements/Button";
 
 export default function PlaceItem(props) {
   return (
@@ -14,9 +15,9 @@ export default function PlaceItem(props) {
           <p>{props.description}</p>
         </div>
         <div className="place-item__actions">
-          <button>VIEW ON MAP</button>
-          <button>EDIT</button>
-          <button>DELETE</button>
+          <Button inverse>VIEW ON MAP</Button>
+          <Button to={`/places/${props.id}`}>EDIT</Button>
+          <Button danger>DELETE</Button>
         </div>
       </Card>
     </li>
